@@ -2,6 +2,7 @@ services:
 - type: pserv
   name: zulip-redis
   env: docker
+  plan: free
   dockerfilePath: ./redis/Dockerfile
   dockerContext: ./redis
   autoDeploy: false
@@ -15,6 +16,7 @@ services:
 - type: pserv
   name: zulip-memcached
   env: docker
+  plan: free
   dockerfilePath: ./memcached/Dockerfile
   autoDeploy: false
   envVars:
@@ -27,6 +29,7 @@ services:
 - type: pserv
   name: zulip-rabbitmq
   env: docker
+  plan: free
   repo: https://github.com/render-examples/rabbitmq.git
   autoDeploy: false
   envVars:
@@ -43,6 +46,7 @@ services:
 - type: pserv
   name: zulip-postgresql
   env: docker
+  plan: free
   dockerfilePath: ./postgresql/Dockerfile
   autoDeploy: false
   envVars:
@@ -58,7 +62,7 @@ services:
 - type: web
   name: zulip
   env: docker
-  plan: standard
+  plan: free
   dockerfilePath: ./docker-zulip/Dockerfile
   autoDeploy: false
   disk:
